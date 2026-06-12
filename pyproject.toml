@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-pin-node-input"
+version = "0.1.0"
+description = "Pin widget controls from any node to a persistent sidebar panel"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/dawncreatescode/comfyui-pin-node-input"
+
+[tool.comfy]
+PublisherId = "dawncreatescode"
+DisplayName = "Pin Node Input"
+Icon = ""
