@@ -1,6 +1,6 @@
 [project]
 name = "comfyui-pin-node-input"
-version = "0.1.0"
+version = "0.1.1"
 description = "Pin widget controls from any node to a persistent sidebar panel"
 license = { text = "MIT" }
 requires-python = ">=3.9"
