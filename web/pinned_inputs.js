@@ -8,6 +8,7 @@ let panelRoot = null;
 let syncFns = [];      // per-row sync functions; each returns false if its pin went structurally stale
 let syncTimer = null;
 let dragKey = null;    // key of the pin currently being dragged, null when idle
+const textareaHeights = new Map(); // pinKey → height string saved by user drag
 
 // ── Storage helpers ────────────────────────────────────────────────────────────
 
@@ -350,6 +351,13 @@ function buildPinRow(pin) {
 
     const ctrl = makeControl(widget, node);
     if (ctrl) {
+        if (ctrl.el.tagName === "TEXTAREA") {
+            const saved = textareaHeights.get(key);
+            if (saved) ctrl.el.style.height = saved;
+            ctrl.el.addEventListener("mouseup", () => {
+                if (ctrl.el.style.height) textareaHeights.set(key, ctrl.el.style.height);
+            });
+        }
         row.appendChild(ctrl.el);
         // Row is stale if the pin no longer resolves to the same objects
         // (node deleted, workflow reloaded/undone, widget converted to input).
