@@ -13,3 +13,4 @@ venv/
 *.egg
 .DS_Store
 Thumbs.db
+node.zip
